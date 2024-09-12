@@ -1,0 +1,44 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class prac1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Introduce el valor de N: ");
+        int N = scanner.nextInt();
+        
+        long startTime = System.nanoTime();
+        
+        boolean[] primos = cribaEratostenes(N);
+        
+        long endTime = System.nanoTime();
+        
+        System.out.println("Parte A: Números primos hasta " + N + ":");
+        for (int i = 2; i <= N; i++) {
+            if (primos[i]) {
+                System.out.print(i + " ");
+            }
+        }
+        
+        // Calcular y mostrar el tiempo de ejecución
+        long duration = endTime - startTime;
+        System.out.println("\nParte B: Tiempo de ejecución (en nanosegundos): " + duration);
+    }
+    
+    public static boolean[] cribaEratostenes(int N) {
+        boolean[] primos = new boolean[N + 1];
+        Arrays.fill(primos, true);
+        primos[0] = false; 
+        primos[1] = false; 
+        
+        for (int i = 2; i * i <= N; i++) {
+            if (primos[i]) {
+                for (int j = i * i; j <= N; j += i) {
+                    primos[j] = false;
+                }
+            }
+        }
+        return primos;
+    }
+}
