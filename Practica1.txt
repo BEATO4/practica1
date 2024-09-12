@@ -1,3 +1,5 @@
+package logico;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,7 +23,7 @@ public class prac1 {
             }
         }
         
-        // Calcular y mostrar el tiempo de ejecución
+        // Calcular y mostrar el tiempo de ejecucion
         long duration = endTime - startTime;
         System.out.println("\nParte B: Tiempo de ejecucion (en nanosegundos): " + duration);
     }
