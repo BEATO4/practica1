@@ -28,6 +28,9 @@ public class prac1 {
         System.out.println("\nParte B: Tiempo de ejecucion (en nanosegundos): " + duration);
     }
     
+	double duration = (endTime - startTime) / 1000000000.0;
+	System.out.printf("\nParte B: Tiempo de ejecucion: %.9f segundos\n", duration);
+	}
     public static boolean[] cribaEratostenes(int N) {
         boolean[] primos = new boolean[N + 1];
         Arrays.fill(primos, true);
